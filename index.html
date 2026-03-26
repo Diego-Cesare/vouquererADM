@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Vou Querer - ADM</title>
+  </head>
+  <body>
+    <div class="dashboard-conteiner">
+      <header>
+        <div>
+          <span>Vou Querer</span>
+          <span>ADM</span>
+        </div>
+      </header>
+
+      <div class="total-badge">
+        <div class="total">Total: <strong id="totalMarmitas">0</strong></div>
+        <div class="ref">
+          Refeitório:<strong id="totalRefeitorio">0</strong>
+        </div>
+      </div>
+
+      <main id="listaPedidos">
+        <p
+          style="
+            text-align: center;
+            color: var(--fg-muted);
+            width: 100%;
+            margin-top: 40px;
+          "
+        >
+          Carregando pedidos do Firebase...
+        </p>
+      </main>
+    </div>
+
+    <script type="module" src="scripts/main.js"></script>
+  </body>
+</html>

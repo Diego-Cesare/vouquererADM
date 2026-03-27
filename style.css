@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-  --bg: #ffffff;
+  --bg: #e6fff1;
   --bg-alt: #ffffff;
-  --fg: #0f172a;
+  --fg: #0f172abc;
   --fg-muted: #708090;
-  --accent: #347dec;
-  --accent-hover: #1053b92c;
+  --accent: #2c9664;
+  --accent-hover: #4ba67b;
+  --red: #ff9898;
+  --red-hover: #ff466535;
   --border: #3f3f3f46;
 }
 
@@ -20,98 +22,106 @@
 body {
   background-color: var(--bg);
   min-height: 100vh;
-  padding: 10px;
   color: var(--fg);
-  background-image: radial-gradient(
-    circle at bottom left,
-    rgba(46, 255, 140, 0.6) 0%,
-    transparent 40%
-  );
 }
 
 button {
   border: none;
-  padding: 10px 0px;
-  color: var(--accent);
-  font-size: 1rem;
+  width: 60px;
+  padding: 3px 6px;
   border-radius: 6px;
-  background-color: var(--accent-hover);
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.btn-delete .material-symbols-outlined {
+  font-size: 1.6rem;
+  padding: 10px;
+  border-radius: 50%;
+  color: var(--bg);
+  background-color: var(--red);
 }
 
 .dashboard-conteiner {
-  max-width: 900px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  position: relative;
+  gap: 10px;
 }
 
 header {
+  background-color: var(--accent);
+  border-radius: 0px 0px 20px 20px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  min-height: 10%;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 20px;
   animation: fadeInDown 0.4s ease;
-  border-bottom: solid 3px var(--accent);
-  backdrop-filter: blur(10px);
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
+}
+
+header .titulo {
+  display: grid;
 }
 
 header span {
-  color: var(--fg);
+  color: var(--bg);
+  font-weight: bold;
   font-size: 2rem;
 }
 
 header span:nth-child(2) {
-  color: var(--accent);
-  font-size: 2rem;
+  color: var(--bg);
+  font-size: 1rem;
 }
 
 .total-badge {
+  margin-top: 20px;
+  gap: 10px;
   display: flex;
-  justify-content: flex-start;
-  gap: 20px;
-  padding: 10px 0px;
-  border-radius: 12px;
-  font-size: 1.2rem;
-  margin-top: 100px;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.material-symbols-outlined {
+  font-size: 2rem;
 }
 
 .total,
 .ref {
-  background-color: var(--accent);
-  color: var(--bg);
-  border-radius: 6px;
-  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 33%;
+  padding: 10px 0px;
+  border-radius: 20px;
+  background-color: var(--accent-hover);
 }
 
-.total-badge strong {
-  font-size: 1.2rem;
-  margin-left: 8px;
+.total-badge strong,
+.total-badge p {
+  font-size: 1rem;
+  color: var(--bg);
 }
 
 main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  gap: 10px;
+  padding: 10px;
 }
 
 .pedido-card {
   background-color: var(--bg-alt);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  padding: 10px;
   border: 1px solid var(--border);
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
   animation: scaleIn 0.3s ease;
   transition: transform 0.2s;
+  position: relative;
 }
 
 .card-header {
@@ -123,21 +133,18 @@ main {
 }
 
 .card-header h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 500;
   background-color: var(--accent-hover);
   padding: 6px 10px;
   border-radius: 6px;
-  color: var(--accent);
+  color: var(--bg);
 }
 
 .badge-qtd {
-  background-color: #f1f5f9;
   color: var(--fg);
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-weight: 400;
-  font-size: 0.9rem;
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 .card-body p {
@@ -148,11 +155,12 @@ main {
 }
 
 .card-body strong {
+  font-size: 1rem;
   color: var(--fg);
 }
 
 .nomes-extras {
-  margin-top: 10px;
+  margin: 10px 0px;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -160,7 +168,7 @@ main {
 
 .nome-tag {
   background-color: var(--accent-hover);
-  color: var(--accent);
+  color: var(--bg);
   font-size: 0.8rem;
   padding: 3px 8px;
   border-radius: 6px;

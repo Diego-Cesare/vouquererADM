@@ -4,25 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Vou Querer - ADM</title>
   </head>
   <body>
     <div class="dashboard-conteiner">
       <header>
-        <div>
-          <span>Vou Querer</span>
+        <div class="titulo">
           <span>ADM</span>
+          <span>Vou Querer</span>
+        </div>
+        <div class="total-badge">
+          <div class="total">
+            <span class="material-symbols-outlined"> add </span>
+            <strong id="totalMarmitas">0</strong>
+            <p>Total</p>
+          </div>
+          <div class="ref">
+            <span class="material-symbols-outlined">
+              delivery_truck_speed
+            </span>
+            <strong id="totalEntrega">0</strong>
+            <p>Entrega</p>
+          </div>
+          <div class="ref">
+            <span class="material-symbols-outlined"> local_dining </span>
+            <strong id="totalRefeitorio">0</strong>
+            <p>Refeitório</p>
+          </div>
         </div>
       </header>
-
-      <div class="total-badge">
-        <div class="total">Total: <strong id="totalMarmitas">0</strong></div>
-        <div class="ref">
-          Refeitório:<strong id="totalRefeitorio">0</strong>
-        </div>
-      </div>
-
       <main id="listaPedidos">
         <p
           style="

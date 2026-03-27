@@ -9,6 +9,7 @@ import {
 const listaPedidos = document.getElementById("listaPedidos");
 const totalMarmitasEl = document.getElementById("totalMarmitas");
 const totalRefeitorioEl = document.getElementById("totalRefeitorio");
+const totalEntregaEl = document.getElementById("totalEntrega");
 
 // helper para data (aceita Timestamp ou string)
 function parseData(data) {
@@ -22,6 +23,7 @@ onSnapshot(
   (snapshot) => {
     let totalMarmitas = 0;
     let totalRefeitorio = 0;
+    let totalEntrega = 0;
 
     // transforma em array + mantém id
     const pedidos = snapshot.docs.map((doc) => ({
@@ -50,7 +52,17 @@ onSnapshot(
 
         totalMarmitas += quantidade;
 
-        if (pedido.local && pedido.local.toLowerCase().includes("refeitorio")) {
+        function normalizarTexto(texto) {
+          return texto
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+        }
+
+        if (
+          pedido.local &&
+          normalizarTexto(pedido.local).toLowerCase().includes("refeitorio")
+        ) {
           totalRefeitorio += quantidade;
         }
 
@@ -77,14 +89,21 @@ onSnapshot(
           <p><strong>Horário:</strong> ${horario}</p>
           ${extras ? `<div class="nomes-extras">${extras}</div>` : ""}
         </div>
-        <button class="btn-delete" data-id="${pedido.id}">Apagar</button>
+        <button class="btn-delete" data-id="${pedido.id}">
+          <span class="material-symbols-outlined">
+            delete
+          </span>
+        </button>
 
       </div>
     `;
       })
       .join("");
 
+    totalEntrega = totalMarmitas - totalRefeitorio;
+
     totalMarmitasEl.innerText = totalMarmitas.toString();
+    totalEntregaEl.innerText = totalEntrega.toString();
     totalRefeitorioEl.innerText = totalRefeitorio.toString();
   },
   (error) => {

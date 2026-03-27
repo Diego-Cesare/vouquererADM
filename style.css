@@ -26,6 +26,7 @@ body {
 }
 
 button {
+  background-color: transparent;
   border: none;
   width: 60px;
   padding: 3px 6px;
